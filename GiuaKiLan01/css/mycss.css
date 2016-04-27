@@ -1,0 +1,105 @@
+@import url("bootstrap.min.css");
+h1 {	
+		font-size: 23px;
+	}
+h2 {	
+		font-size: 19px;
+		color: #696969;
+	}
+h3 {	
+		font-size: 15px;
+		color: white;
+	}
+h4 {	
+		font-size: 13px;
+		color: #696969;
+	}	
+a {	
+		text-decoration: none !important;
+		font-size: 12px;
+		color: #696969;
+	}
+	
+li {
+  list-style: none;
+}
+img {
+    float: center;
+}
+footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+.container{
+    width: 900px; 
+	background-color: white;
+	padding: 0px;
+	border: 2px solid #ccc;
+}
+
+.container_background{
+    width: 900px; 
+	padding: 30px;
+}
+
+.container_topCar{
+	margin-top:-150px;
+	background-color: white !important;
+}
+.container_title_background{
+    width: 130px; 
+	height: 50px;
+	padding: 0px;
+	background-color: #363636;
+	border: 0px;
+}
+
+.button2 {
+   width: 140px;
+   height: 35px;
+   background: #104E8B;
+   color: white;
+   border-radius: 3px;
+   border:1px solid black;
+   margin:0px;
+   vertical-align: middle;
+   }
+   
+ 
+.button1 {
+   width: 40px;
+   height: 35px;
+   background: #104E8B;
+   color: white;
+   border-radius: 3px;
+   border:1px solid black;
+   margin:-4px;
+   vertical-align: middle;
+   }   
+   
+.button3 {    
+	border: none;
+   width: default;
+   height: 35px;
+   background: #DCDCDC;
+   color: black;
+   margin:0px;
+   border-radius:3px;
+   vertical-align: middle;
+   margin: 2px;
+   
+   }
+   
+ .button4 {
+	border: none;
+   width: default;
+   height: 35px;
+   background: #009ACD;
+   color: white;
+   border-radius:3px;
+   margin-right:-6px;
+   vertical-align: middle;
+   }
+.Wrapper { background-color: #D3D3D3; font-family: Arial;}
