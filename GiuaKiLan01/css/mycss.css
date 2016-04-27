@@ -45,7 +45,10 @@ footer {
 }
 
 .container_topCar{
-	margin-top:-150px;
+	position: relative;
+	overflow: hidden;
+	margin-top:-200px;
+	opacity: 0.97;
 	background-color: white !important;
 }
 .container_title_background{
