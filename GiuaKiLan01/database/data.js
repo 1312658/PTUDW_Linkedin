@@ -1,13 +1,13 @@
-var LinkedInApp = angular.module('LinkedInApp', []);
+/*var LinkedIn = angular.module('LinkedIn', ['ngSanitize']);
 
-LinkedInApp.controller('PersonDetail', function($scope) {
+LinkedIn.controller('PersonDetail', function($scope) {
     $scope.person = {
     	'avatar': './picture/avatar.jpg',
     	'firstname': 'Jeff',
     	'lastname': 'Weiner',
      	'address': 'San Francisco Bay Area',
      	'personWebAddress': 'https://www.linkedin.com/in/jeffweiner08',
-     	'summary': "Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.\n\n\n Currently CEO at LinkedIn, the web's largest and most powerful network of professionals.\n\nPrior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.\n\nPreviously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.\n\nSpecialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance",
+     	'summary': "Internet executive with over 20 years of experience, including general management of mid to large size organizations, corporate development, product development, business operations, and strategy.<br/><br/> Currently CEO at LinkedIn, the web's largest and most powerful network of professionals.<br/><br/>Prior to LinkedIn, was an Executive in Residence at Accel Partners and Greylock Partners. Primarily focused on advising the leadership teams of the firm's existing consumer technology portfolio companies while also working closely with the firm’s partners to evaluate new investment opportunities.<br/><br/>Previously served in key leadership roles at Yahoo! for over seven years, most recently as the Executive Vice President of Yahoo!'s Network Division managing Yahoo's consumer web product portfolio, including Yahoo's Front Page, Mail, Search, and Media products.<br/><br/>Specialties: general management, corporate development, product development, business operations, strategy, product marketing, non-profit governance",
      };
 
      $scope.education = {
@@ -152,4 +152,20 @@ LinkedInApp.controller('PersonDetail', function($scope) {
      		'point': '73'
      	}
      };
- });
+	 
+	 $scope.project = {
+     	'first':
+     	{
+     		'name': 'GOMOKU',
+			'Language' : 'WPF',
+     		'describe': 'Gomoku is an abstract strategy board game. Also called Gobang or Five in a Row, it is traditionally played with Go pieces (black and white stones) on a go board with 19x19 (15x15) intersections;[1] however, because once placed, pieces are not moved or removed from the board; gomoku may also be played as a paper and pencil game. This game is known in several countries under different names.'
+     	},
+     	'second':
+     	{
+     		'name': 'CARO',
+     		'Language': 'C#',
+			'describe': 'The Caro–Kann is a common defense against the King Pawn Opening and is classified as a "Semi-Open Game" like the Sicilian Defence and French Defence, although it is thought to be more solid and less dynamic than either of those openings. It often leads to good endgames for Black, who has the better pawn structure.'
+     	}
+     };
+	 
+ });*/

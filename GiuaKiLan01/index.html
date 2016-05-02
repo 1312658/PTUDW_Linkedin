@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="linkedInApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Anh Tuấn | Linkedin</title>
+    <link rel="icon" href="picture/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mycss.css">
+    <script src="./js/angular.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/popModal.css">
+
+    <script src="./js/app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+
+</head>
+<body  ng-controller= "content-controller"  background="./picture/bg-texture.png">
+    <div class ="Wrapper" >
+        <!-- thanh tìm kiếm và background -->
+        <nav class="navbar navbar-inverse">
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
+            <div class="row">
+                <div >
+                    <img  id="cover" alt="cover" ng-src= "{{cover}}"/>
+                </div>
+            </div>
+        </nav>
+
+        <!-- TopCard -->
+        <div class = "container">
+            <div class ="container_topCar">
+                    <div class = "row">
+                        <div class = "col-lg-3">
+                            <img  ng-src="{{avatar}}" height="250" width="250" alt="avatar">
+                        </div>
+                        <div class = "col-lg-6">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-11">
+                                <h1 >
+                                    <b>{{name[0]}}&nbsp {{ name[1]}}</b> &nbsp&nbsp&nbsp
+                                    <!-- button edit rename work -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                              <button id="editName" class="edit-name-button" ng-click = "buldingTextRename()"} >
+                                                    <img src = "./picture/edit.png">
+                                              </button>
+                                        </span>
+                                    </span>
+                                </h1>
+
+                                <h2>{{possition}}&nbsp&nbsp&nbsp
+                                    <!-- button edit curren work -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                                    <button id="editCurrenWork" class="edit-name-button" ng-click = "buldingTextReCurrenWork()"} >
+                                                        <img src = "./picture/edit.png">
+                                                    </button>
+                                        </span>
+                                    </span>
+                                </h2>
+                                <li>
+                                    <a href="https://www.linkedin.com/vsearch/p?f_G=us%3A84&trk=prof-0-ovw-location" title="">{{work.location}}</a> |
+                                    <a href="https://www.linkedin.com/vsearch/p?f_I=6&trk=prof-0-ovw-industry" title="">{{work.industry}}</a><br/>
+
+                                    <a href="#" title=""> Current</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="https://www.linkedin.com/company/1337?trk=prof-0-ovw-curr_pos" title=""> {{experience[0].companyName}}</a>,
+                                    <a href="https://www.linkedin.com/company/1666?trk=prof-0-ovw-curr_pos" title=""> {{experience[1].companyName}} </a>,
+                                    <a href="https://www.linkedin.com/company/33101?trk=prof-0-ovw-curr_pos" title=""> {{experience[2].companyName}} </a> <br/>
+
+                                    <a href="#" title=""> Previous </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="https://www.linkedin.com/company/695380?trk=prof-0-ovw-prev_pos" title=""> {{experience[5].companyName}} </a>,
+                                    <a href="https://www.linkedin.com/company/17412?trk=prof-0-ovw-prev_pos" title=""> {{experience[6].companyName}} </a>,
+                                    <a href="https://www.linkedin.com/company/17412?trk=prof-0-ovw-prev_pos" title=""> {{experience[7].companyName}}</a> <br/>
+
+                                    <a href="#" title=""> Education </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="https://www.linkedin.com/edu/school?id=19329&trk=prof-0-ovw-edu" title=""> {{education.name}}</a> <br/><br/>
+                                </li>
+                                <button type="button" id= "btn_follow" > <b>Folowing </b></button>
+                                <button type="button" id="btn_arrow"> <b> </b>
+                                    <span class = "caret"></span>
+                                </button>
+                                <a>&nbsp;&nbsp;&nbsp; Know {{name[0]}} ? </a><br/>
+                                <a href="https://www.linkedin.com/people/invite?from=profile&key=22330283&firstName=Jeff&lastName=Weiner&authToken=XTo9&authType=name&connectionParam=member_desktop_profile_influencer&csrfToken=ajax%3A1694616679711342258&goback=%2Enppvan_jeffweiner08&trk=nprofile-flw_connect" title=""> <b>&nbsp;&nbsp;&nbsp; Connect</b> </a>
+                             </div>
+                        </div>
+
+                        <div class = "col-lg-3">
+                            <div  class = "col-lg-5">
+                            </div>
+                            <div class ="col-lg-5">
+                                <br/>
+                                <a  href="https://www.linkedin.com/pulse/discover" >
+                                    <img src="./picture/influencer.png" alt="Icon">
+                                </a>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <h1 style="float: right;"><b> {{followers}}</b></h1>
+                                <h4 style="float: right;"> fllowers</h4>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="row" row = 40>
+                    <div class="col-lg-10" style="height: 40px">
+                        <div class="profile-extra" >
+                            <a href="#">
+                                <div class="col-lg-4">
+                                    <div class="col-lg-1">
+                                        <img src = "./picture/in.png" width="13px" height="13px"/>
+                                    </div>
+                                    <div class="col-lg-11">
+                                        <a href="https://www.linkedin.com/in/jeffweiner08" title="">{{profileURL}}</a> <br/><br/>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="profile-contact" >
+                            <a href="#">
+                                <div class="col-lg-2">
+                                    <img src = "./picture/contact-idle.png">
+                                </div>
+                                <div class="col-lg-10">
+                                    <p>Contact Info </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--profile -->
+        <div class = "container">
+            <!--Background -->
+            <div class = "container_title_background">
+                <div class ="row">
+                    <div class ="col-lg-1">
+                    </div>
+                    <div class ="col-lg-4">
+                        <h3><center> <b>Background </b> </center></h3>
+                    </div>
+                </div>
+            </div>
+            <div class = "container_background">
+                <div class = "row">
+                    <div class = "col-lg-4">
+                        <div class = "col-lg-3">
+                            <img src="./picture/header-summary.png" height="40" width="40" alt="summary">
+                        </div>
+                        <div class = "col-lg-6">
+                            <h2> Summary &nbsp&nbsp&nbsp
+                                <!-- button edit Summary -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                                    <button id="editSummary" class="edit-name-button" ng-click = "buldingTextReSummary()"} >
+                                                        <img src = "./picture/edit.png">
+                                                    </button>
+                                        </span>
+                                    </span>
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h4 ng-bind-html="summary"> {{summary}} </h4>
+
+            </div>
+            <hr/>
+            <div class = "container_background">
+                <div class = "row">
+                    <div class = "col-lg-4">
+                        <div class = "col-lg-3">
+                            <img src="./picture/header-experience.png" height="40" width="40" alt="summary">
+                        </div>
+                        <div class = "col-lg-6">
+                            <h2 > Experience </h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a href="#" title=""><h2><b>{{experience[0].title}}</b></h2>	</a>
+                            <a href="#" title="">{{experience[0].companyName}}</a>
+                            <h4> {{experience[0].startPeriod}} | {{experience[0].endPeriod}} ({{experience[0].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[0].companyUrl}}">
+                            <img ng-src="{{experience[0].companyLogo}}" ng-alt="{{experience[0].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[0].description}}</h4>
+                    <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[1].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[1].companyName}}</a>
+                            <h4> {{experience[1].startPeriod}} | {{experience[1].endPeriod}} ({{experience[1].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[1].companyUrl}}">
+                            <img ng-src="{{experience[1].companyLogo}}" ng-alt="{{experience[1].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[1].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[2].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[2].companyName}}</a>
+                            <h4> {{experience[2].startPeriod}} | {{experience[2].endPeriod}} ({{experience[2].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[2].companyUrl}}">
+                            <img ng-src="{{experience[2].companyLogo}}" ng-alt="{{experience[2].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[2].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[3].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[3].companyName}}</a>
+                            <h4> {{experience[3].startPeriod}} | {{experience[3].endPeriod}} ({{experience[3].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[3].companyUrl}}">
+                            <img ng-src="{{experience[3].companyLogo}}" ng-alt="{{experience[3].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4 ng-bind-html="experience[3].description">{{experience[3].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[4].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[4].companyName}}</a>
+                            <h4> {{experience[4].startPeriod}} | {{experience[4].endPeriod}} ({{experience[4].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[4].companyUrl}}">
+                            <img ng-src="{{experience[4].companyLogo}}" ng-alt="{{experience[4].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[4].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[5].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[5].companyName}}</a>
+                            <h4> {{experience[5].startPeriod}} | {{experience[5].endPeriod}} ({{experience[5].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[5].companyUrl}}">
+                            <img ng-src="{{experience[5].companyLogo}}" ng-alt="{{experience[5].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[5].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[6].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[6].companyName}}</a>
+                            <h4> {{experience[6].startPeriod}} | {{experience[6].endPeriod}} ({{experience[6].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[6].companyUrl}}">
+                            <img ng-src="{{experience[6].companyLogo}}" ng-alt="{{experience[6].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[6].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[7].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[7].companyName}}</a>
+                            <h4> {{experience[7].startPeriod}} | {{experience[7].endPeriod}} ({{experience[7].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[7].companyUrl}}">
+                            <img ng-src="{{experience[7].companyLogo}}" ng-alt="{{experience[7].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4>{{experience[7].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[8].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[8].companyName}}</a>
+                            <h4> {{experience[8].startPeriod}} | {{experience[8].endPeriod}} ({{experience[8].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[8].companyUrl}}">
+                            <img ng-src="{{experience[8].companyLogo}}" ng-alt="{{experience[8].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4 ng-bind-html="experience[8].description" >{{experience[8].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[9].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[9].companyName}}</a>
+                            <h4> {{experience[9].startPeriod}} | {{experience[9].endPeriod}} ({{experience[9].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[9].companyUrl}}">
+                            <img ng-src="{{experience[9].companyLogo}}" ng-alt="{{experience[9].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4 ng-bind-html="experience[9].description" >{{experience[9].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[10].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[10].companyName}}</a>
+                            <h4> {{experience[10].startPeriod}} | {{experience[10].endPeriod}} ({{experience[10].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[10].companyUrl}}">
+                            <img ng-src="{{experience[10].companyLogo}}" ng-alt="{{experience[10].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4 ng-bind-html="experience[10].description" >{{experience[10].description}}</h4>
+                <br/><br/>
+
+                <div class = "row">
+                    <div class = "col-lg-10">
+                        <h4><a a href="#" title=""><h2><b>{{experience[11].title}}</b></h2>	</a>
+                            <a a href="#" title="">{{experience[11].companyName}}</a>
+                            <h4> {{experience[11].startPeriod}} | {{experience[11].endPeriod}} ({{experience[11].duration}})</h4> </h4>
+                    </div>
+                    <div class = "col-lg-2">
+                        <a href="{{experience[11].companyUrl}}">
+                            <img ng-src="{{experience[11].companyLogo}}" ng-alt="{{experience[11].companyUrl}}"/>
+                        </a>
+                    </div>
+                </div>
+                <h4 ng-bind-html="experience[11].description" >{{experience[11].description}}</h4>
+                <hr/>
+            </div>
+            <div class = "container_background">
+                    <div class = "row">
+                        <div class = "col-lg-6">
+                            <div class = "col-lg-2">
+                                <img src="./picture/header-volunteerExperience.png" height="40" width="40" alt="summary">
+                            </div>
+                            <div class = "col-lg-10">
+                                <h2 > Volunteer Experience & Causes </h2>
+                            </div>
+                        </div>
+                    </div>
+                <h2><b>Causes Jeff cares about:</b>	</h2>
+                    <li style="list-style: circle"> {{caredCauses[0]}} </li>
+                    <li style="list-style: circle"> {{caredCauses[1]}} </li>
+                    <li style="list-style: circle"> {{caredCauses[2]}} </li>
+
+                <h2><b>Organizations Jeff supports</b>	</h2>
+                <div id="background-volunteerexp">
+                    <a href="#">
+                        <li style="list-style: circle"> {{supportedOrganizations[0]}} </li>
+                    </a>
+                    <a href="#">
+                        <li style="list-style: circle"> {{supportedOrganizations[1]}} </li>
+                    </a>
+                    <a href="#">
+                        <li style="list-style: circle"> {{supportedOrganizations[2]}} </li>
+                    </a>
+                    <a href="#">
+                        <li style="list-style: circle"> {{supportedOrganizations[3]}} </li>
+                    </a>
+                </div>
+            </div>
+                                                <div class = "container_background">
+                                                    <div class = "row">
+                                                        <div class = "col-lg-1">
+                                                            <img src="./picture/header-skill.png" height="40" width="40" alt="summary">
+                                                        </div>
+                                                        <div class = "col-lg-4">
+                                                            <h2> Skills </h2>
+                                                        </div>
+                                                    </div>
+
+                                                    <h2> Top Skills </h2>
+                                                    <button type="button" class ="button4">{{skills[0].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[0].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[1].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[1].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[2].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[2].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[3].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[3].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[4].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[4].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[5].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[5].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[6].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[6].name}}</h4> </button> <br>
+                                                    <button type="button" class ="button4">{{skills[7].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[7].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[8].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[8].name}}</h4></button> <br>
+                                                    <button type="button" class ="button4">{{skills[9].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[9].name}}</h4></button> <br>
+                                                    <br/>
+                                                    <h4>Jeff also knows about... </h4>
+                                                    <button type="button" class ="button4">{{skills[10].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[10].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[11].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[11].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[12].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[12].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[13].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[13].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[14].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[14].name}}</h4></button><br/>
+                                                    <button type="button" class ="button4">{{skills[15].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[15].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[16].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[16].name}}</h4> </button>
+                                                    <button type="button" class ="button4">{{skills[17].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[17].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[18].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[18].name}}</h4></button>
+                                                    <button type="button" class ="button4">{{skills[19].endorsers}}</button>
+                                                    <button type="button" class ="button3"><h4>{{skills[19].name}}</h4></button>
+
+                                                </div>
+
+                                                <hr/>
+
+
+                                                <div class = "container_background">
+                                                    <div class = "row">
+                                                        <div class = "col-lg-1">
+                                                            <img src="./picture/header-education.png" height="40" width="40" alt="summary">
+                                                        </div>
+                                                        <div class = "col-lg-4">
+                                                            <h2> Education </h2>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class = "row">
+                                                        <div class = "col-lg-10">
+                                                            <a a href="#" title=""><h2><b> {{education.name}}</b></h2>	</a>
+                                                            <h4>{{education.title}}<br/>{{education.startPeriod }} - {{education.endPeriod }} </h4>
+                                                        </div>
+                                                        <div class = "col-lg-2">
+                                                            <img ng-src="{{education.logo}}" height="60" width="60" ng-alt="{{education.name}}"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class = "container_background">
+                                                    <div class = "row">
+                                                        <div class = "col-lg-1">
+                                                            <img src="./picture/project.png" height="40" width="40" alt="summary">
+                                                        </div>
+                                                        <div class = "col-lg-4">
+                                                            <h2> Project </h2>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class = "row">
+                                                        <div class = "col-lg-10">
+                                                            <h4><a a href="#" title=""><h2><b>{{project[0].name}}</b></h2>	</a>
+                                                                <a a href="#" title="">{{project[0].company}}</a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <h4>{{project[0].describe}}</h4>
+                                                        <br/><br/>
+
+                                                        <div class = "row">
+                                                            <div class = "col-lg-10">
+                                                                <h4><a a href="#" title=""><h2><b>{{project[1].name}}</b></h2>	</a>
+                                                                    <a a href="#" title="">{{project[1].company}}</a>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+
+                                                        <h4>{{project[1].describe}}</h4>
+
+                                                </div>
+
+            </div>
+
+            <footer>
+            </footer>
+        </div>
+
+   </div>
+
+
+    <!--Div để show dialog rename -->
+    <div style="display:none">
+        <div id="rename" class="editName" >
+            <p> Name </p>
+            <input type ="text"  ng-model = "txt_name1"> </input>
+            <input type ="text"  ng-model = "txt_name2">  </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveRename()">Save</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để show dialog curren work -->
+    <div style="display:none">
+        <div id="reCurenWork" class = "editCurrenWork">
+            <p> Your professional headline </p>
+            <input type ="text"  ng-model = "txt_currenWork"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveCurrenWork()">Save</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để show dialog summary -->
+    <div style="display:none">
+        <div id="reSummary" class = "editSummary">
+            <p> Your summary </p>
+            <textarea  ng-model = "txt_summary"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveSummary()">Save</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="js/popModal.js"></script>
+    <script>
+        $(function(){
+            $('#editName').click(function(){
+                $('#editName').popModal({
+                    html : $('#rename'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#editCurrenWork').click(function(){
+                $('#editCurrenWork').popModal({
+                    html : $('#reCurenWork'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#editSummary').click(function(){
+                $('#editSummary').popModal({
+                    html : $('#reSummary'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
