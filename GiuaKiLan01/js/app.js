@@ -33,7 +33,42 @@ linkedInApp.controller('content-controller', ['$scope','$http',
         $scope.buldingSaveSummary = function() {
             $scope.summary = $scope.txt_summary;
         }
-        
+        // add cause care
+        $scope.buldingAddCauseCare = function () {
+            $scope.caredCauses.push($scope.txt_CauseCare);
+        }
+
+        // remove cause care
+        $scope.buldingRemoveCauseCare = function (index) {
+            $scope.caredCauses.splice(index, 1);
+        }
+        // add support
+        $scope.buldingAddSupport =  function () {
+            $scope.supportedOrganizations.push($scope.txt_Support);
+        }
+        // remove support
+        $scope.buldingRemoveSupport = function (index) {
+            $scope.supportedOrganizations.splice(index, 1);
+        }
+
+        // show dialog experience
+        $scope.showDialog = function() {
+                $('#editExperience').popModal({
+                    html : $('#reEditExperience'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+        }
+
         $http.get('./database/myjson.json').success(function (data) {
             //Read model from json data
             $scope.cover = data.cover;

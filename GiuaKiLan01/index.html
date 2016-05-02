@@ -179,13 +179,17 @@
 
                 <h4 ng-bind-html="summary"> {{summary}} </h4>
 
+
             </div>
             <hr/>
+
+            <!--start  Experience-->
             <div class = "container_background">
                 <div class = "row">
                     <div class = "col-lg-4">
                         <div class = "col-lg-3">
                             <img src="./picture/header-experience.png" height="40" width="40" alt="summary">
+
                         </div>
                         <div class = "col-lg-6">
                             <h2 > Experience </h2>
@@ -193,186 +197,42 @@
                     </div>
                 </div>
 
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a href="#" title=""><h2><b>{{experience[0].title}}</b></h2>	</a>
-                            <a href="#" title="">{{experience[0].companyName}}</a>
-                            <h4> {{experience[0].startPeriod}} | {{experience[0].endPeriod}} ({{experience[0].duration}})</h4> </h4>
+                <div class="editBox-container" ng-repeat="e in experience">
+                    <div class = "row">
+                        <div class = "col-lg-10">
+                            <h4>
+                                <a href="#" title="">
+                                    <h2><b>{{e.title}}</b>&nbsp&nbsp&nbsp
+
+                                    </h2>
+                                </a>
+                                    <span style="display: inline;" class="page_container">
+                                            <span class="page active" data-page="popModal">
+                                                <button  id="editExperience" class="edit-name-button" ng-click="showDialog()" } >
+                                                     <img src = "./picture/edit.png">
+                                                </button>
+                                            </span>
+                                    </span>
+
+                                <a href="#" title="">{{e.companyName}}</a>
+                                <h4> {{e.startPeriod}} | {{e.endPeriod}} ({{e.duration}})
+                                </h4>
+                            </h4>
+                        </div>
+
+                        <div class = "col-lg-2">
+                            <a href="{{e.companyUrl}}">
+                                <img ng-src="{{e.companyLogo}}" ng-alt="{{e.companyUrl}}"/>
+                            </a>
+                        </div>
                     </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[0].companyUrl}}">
-                            <img ng-src="{{experience[0].companyLogo}}" ng-alt="{{experience[0].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[0].description}}</h4>
+                    <h4 ng-bind-html="e.description">{{e.description}}</h4>
                     <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[1].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[1].companyName}}</a>
-                            <h4> {{experience[1].startPeriod}} | {{experience[1].endPeriod}} ({{experience[1].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[1].companyUrl}}">
-                            <img ng-src="{{experience[1].companyLogo}}" ng-alt="{{experience[1].companyUrl}}"/>
-                        </a>
-                    </div>
                 </div>
-                <h4>{{experience[1].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[2].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[2].companyName}}</a>
-                            <h4> {{experience[2].startPeriod}} | {{experience[2].endPeriod}} ({{experience[2].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[2].companyUrl}}">
-                            <img ng-src="{{experience[2].companyLogo}}" ng-alt="{{experience[2].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[2].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[3].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[3].companyName}}</a>
-                            <h4> {{experience[3].startPeriod}} | {{experience[3].endPeriod}} ({{experience[3].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[3].companyUrl}}">
-                            <img ng-src="{{experience[3].companyLogo}}" ng-alt="{{experience[3].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4 ng-bind-html="experience[3].description">{{experience[3].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[4].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[4].companyName}}</a>
-                            <h4> {{experience[4].startPeriod}} | {{experience[4].endPeriod}} ({{experience[4].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[4].companyUrl}}">
-                            <img ng-src="{{experience[4].companyLogo}}" ng-alt="{{experience[4].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[4].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[5].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[5].companyName}}</a>
-                            <h4> {{experience[5].startPeriod}} | {{experience[5].endPeriod}} ({{experience[5].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[5].companyUrl}}">
-                            <img ng-src="{{experience[5].companyLogo}}" ng-alt="{{experience[5].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[5].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[6].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[6].companyName}}</a>
-                            <h4> {{experience[6].startPeriod}} | {{experience[6].endPeriod}} ({{experience[6].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[6].companyUrl}}">
-                            <img ng-src="{{experience[6].companyLogo}}" ng-alt="{{experience[6].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[6].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[7].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[7].companyName}}</a>
-                            <h4> {{experience[7].startPeriod}} | {{experience[7].endPeriod}} ({{experience[7].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[7].companyUrl}}">
-                            <img ng-src="{{experience[7].companyLogo}}" ng-alt="{{experience[7].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4>{{experience[7].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[8].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[8].companyName}}</a>
-                            <h4> {{experience[8].startPeriod}} | {{experience[8].endPeriod}} ({{experience[8].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[8].companyUrl}}">
-                            <img ng-src="{{experience[8].companyLogo}}" ng-alt="{{experience[8].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4 ng-bind-html="experience[8].description" >{{experience[8].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[9].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[9].companyName}}</a>
-                            <h4> {{experience[9].startPeriod}} | {{experience[9].endPeriod}} ({{experience[9].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[9].companyUrl}}">
-                            <img ng-src="{{experience[9].companyLogo}}" ng-alt="{{experience[9].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4 ng-bind-html="experience[9].description" >{{experience[9].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[10].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[10].companyName}}</a>
-                            <h4> {{experience[10].startPeriod}} | {{experience[10].endPeriod}} ({{experience[10].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[10].companyUrl}}">
-                            <img ng-src="{{experience[10].companyLogo}}" ng-alt="{{experience[10].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4 ng-bind-html="experience[10].description" >{{experience[10].description}}</h4>
-                <br/><br/>
-
-                <div class = "row">
-                    <div class = "col-lg-10">
-                        <h4><a a href="#" title=""><h2><b>{{experience[11].title}}</b></h2>	</a>
-                            <a a href="#" title="">{{experience[11].companyName}}</a>
-                            <h4> {{experience[11].startPeriod}} | {{experience[11].endPeriod}} ({{experience[11].duration}})</h4> </h4>
-                    </div>
-                    <div class = "col-lg-2">
-                        <a href="{{experience[11].companyUrl}}">
-                            <img ng-src="{{experience[11].companyLogo}}" ng-alt="{{experience[11].companyUrl}}"/>
-                        </a>
-                    </div>
-                </div>
-                <h4 ng-bind-html="experience[11].description" >{{experience[11].description}}</h4>
-                <hr/>
             </div>
+            <!--end  Experience-->
+
+            <!--start  Volunteer Experience & Causes-->
             <div class = "container_background">
                     <div class = "row">
                         <div class = "col-lg-6">
@@ -384,27 +244,56 @@
                             </div>
                         </div>
                     </div>
-                <h2><b>Causes Jeff cares about:</b>	</h2>
-                    <li style="list-style: circle"> {{caredCauses[0]}} </li>
-                    <li style="list-style: circle"> {{caredCauses[1]}} </li>
-                    <li style="list-style: circle"> {{caredCauses[2]}} </li>
 
-                <h2><b>Organizations Jeff supports</b>	</h2>
-                <div id="background-volunteerexp">
-                    <a href="#">
-                        <li style="list-style: circle"> {{supportedOrganizations[0]}} </li>
-                    </a>
-                    <a href="#">
-                        <li style="list-style: circle"> {{supportedOrganizations[1]}} </li>
-                    </a>
-                    <a href="#">
-                        <li style="list-style: circle"> {{supportedOrganizations[2]}} </li>
-                    </a>
-                    <a href="#">
-                        <li style="list-style: circle"> {{supportedOrganizations[3]}} </li>
+                <h2><b>Causes Jeff cares about:</b> &nbsp&nbsp&nbsp
+                    <span style="display: inline;" class="page_container">
+                           <span class="page active" data-page="popModal">
+                                 <button id="addCausesCares" class="edit-name-button"} >
+                                     +
+                                 </button>
+                           </span>
+                    </span>
+                </h2>
+
+                <div class="editBox-container" ng-repeat="c in caredCauses">
+                        <li style="list-style: circle;"> {{c}} &nbsp&nbsp&nbsp
+                            <span style="display: inline;" class="page_container">
+                               <span class="page active" data-page="popModal">
+                                     <button class="remove-name-button" ng-click ="buldingRemoveCauseCare($index)" >
+                                         -
+                                     </button>
+                               </span>
+                            </span>
+                        </li>
+                </div>
+                <h2><b>Organizations Jeff supports</b> &nbsp&nbsp&nbsp
+                    <span style="display: inline;" class="page_container">
+                           <span class="page active" data-page="popModal">
+                                 <button id="addSupports" class="edit-name-button"} >
+                                       +
+                                 </button>
+                           </span>
+                    </span>
+                </h2>
+
+                <div  id="background-volunteerexp" class="editBox-container" ng-repeat="s in supportedOrganizations">
+                    <a >
+                        <li style="list-style: circle"> {{s}} &nbsp&nbsp&nbsp
+                            <span style="display: inline;" class="page_container">
+                                   <span class="page active" data-page="popModal">
+                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index)" >
+                                             -
+                                         </button>
+                                   </span>
+                            </span>
+                        </li>
                     </a>
                 </div>
             </div>
+            <!--end  Volunteer Experience & Causes-->
+
+
+
                                                 <div class = "container_background">
                                                     <div class = "row">
                                                         <div class = "col-lg-1">
@@ -563,6 +452,43 @@
         </div>
     </div>
 
+    <!--Div để add dialog cause care -->
+    <div style="display:none">
+        <div id="reAddCausesCares" class = "editCurrenWork">
+            <p> Add cause care </p>
+            <input type ="text"  ng-model = "txt_CauseCare"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddCauseCare()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để add Support -->
+    <div style="display:none">
+        <div id="reAddSupports" class = "editCurrenWork">
+            <p> Add Support </p>
+            <input type ="text"  ng-model = "txt_Support"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddSupport()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để edit experience -->
+    <div style="display:none">
+        <div id="reEditExperience">
+            <p> Add Support </p>
+            <input type ="text"  ng-model = "txt_Support"> </input>
+            <input type ="text"  ng-model = "txt_Support"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" >Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+
     <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="js/popModal.js"></script>
     <script>
@@ -617,6 +543,59 @@
                     onClose : function() {}
                 });
             });
+
+            $('#addCausesCares').click(function(){
+                $('#addCausesCares').popModal({
+                    html : $('#reAddCausesCares'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#addSupports').click(function(){
+                $('#addSupports').popModal({
+                    html : $('#reAddSupports'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#editExperience').click(function(){
+                $('#editExperience').popModal({
+                    html : $('#reEditExperience'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+
         });
     </script>
 
