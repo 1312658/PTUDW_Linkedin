@@ -142,6 +142,8 @@
 
             </div>
         </div>
+        <!-- end TopCard -->
+
 
         <!--profile -->
         <div class = "container">
@@ -201,19 +203,17 @@
                     <div class = "row">
                         <div class = "col-lg-10">
                             <h4>
-                                <a href="#" title="">
+                                <a title="">
                                     <h2><b>{{e.title}}</b>&nbsp&nbsp&nbsp
-
+                                        <span style="display: inline;" class="page_container">
+                                                <span class="page active" data-page="popModal">
+                                                    <button  id="editExperience" class="edit-name-button" ng-click="showDialog();" } >
+                                                         <img src = "./picture/edit.png">
+                                                    </button>
+                                                </span>/
+                                        </span>
                                     </h2>
                                 </a>
-                                    <span style="display: inline;" class="page_container">
-                                            <span class="page active" data-page="popModal">
-                                                <button  id="editExperience" class="edit-name-button" ng-click="showDialog()" } >
-                                                     <img src = "./picture/edit.png">
-                                                </button>
-                                            </span>
-                                    </span>
-
                                 <a href="#" title="">{{e.companyName}}</a>
                                 <h4> {{e.startPeriod}} | {{e.endPeriod}} ({{e.duration}})
                                 </h4>
@@ -231,6 +231,8 @@
                 </div>
             </div>
             <!--end  Experience-->
+
+
 
             <!--start  Volunteer Experience & Causes-->
             <div class = "container_background">
@@ -294,7 +296,9 @@
 
 
 
-                                                <div class = "container_background">
+
+            <!--start Skills-->
+                  <div class = "container_background">
                                                     <div class = "row">
                                                         <div class = "col-lg-1">
                                                             <img src="./picture/header-skill.png" height="40" width="40" alt="summary">
@@ -349,17 +353,27 @@
                                                     <button type="button" class ="button3"><h4>{{skills[19].name}}</h4></button>
 
                                                 </div>
+            <!--end Skills-->
+                  <hr/>
 
-                                                <hr/>
 
 
-                                                <div class = "container_background">
+            <!-- Start education -->
+                  <div class = "container_background">
                                                     <div class = "row">
                                                         <div class = "col-lg-1">
                                                             <img src="./picture/header-education.png" height="40" width="40" alt="summary">
                                                         </div>
                                                         <div class = "col-lg-4">
-                                                            <h2> Education </h2>
+                                                            <h2> Education &nbsp&nbsp&nbsp
+                                                            <span style="display: inline;" class="page_container">
+                                                                <span class="page active" data-page="popModal">
+                                                                            <button id="editEducation" class="edit-name-button" ng-click = "buldingTextEducation()">
+                                                                                <img src = "./picture/edit.png">
+                                                                            </button>
+                                                                </span>
+                                                            </span>
+                                                            </h2>
                                                         </div>
                                                     </div>
 
@@ -373,41 +387,54 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <hr/>
-                                                <div class = "container_background">
+            <!-- Start education -->
+                  <hr/>
+
+            <!-- Start project-->
+                 <div class = "container_background">
                                                     <div class = "row">
                                                         <div class = "col-lg-1">
                                                             <img src="./picture/project.png" height="40" width="40" alt="summary">
                                                         </div>
                                                         <div class = "col-lg-4">
-                                                            <h2> Project </h2>
+                                                            <h2> Project &nbsp&nbsp&nbsp
+                                                            <span style="display: inline;" class="page_container">
+                                                                   <span class="page active" data-page="popModal">
+                                                                         <button id="addProject" class="edit-name-button"} >
+                                                                               +
+                                                                         </button>
+                                                                   </span>
+                                                            </span>
+                                                            </h2>
                                                         </div>
                                                     </div>
-
-                                                    <div class = "row">
-                                                        <div class = "col-lg-10">
-                                                            <h4><a a href="#" title=""><h2><b>{{project[0].name}}</b></h2>	</a>
-                                                                <a a href="#" title="">{{project[0].company}}</a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-
-                                                    <h4>{{project[0].describe}}</h4>
-                                                        <br/><br/>
-
+                                                <div class="editBox-container" ng-repeat="p in project">
                                                         <div class = "row">
                                                             <div class = "col-lg-10">
-                                                                <h4><a a href="#" title=""><h2><b>{{project[1].name}}</b></h2>	</a>
-                                                                    <a a href="#" title="">{{project[1].company}}</a>
+                                                                <h4>
+                                                                    <a>
+                                                                        <h2><b>{{p.name}} &nbsp&nbsp&nbsp</b>
+                                                                            <span style="display: inline;" class="page_container">
+                                                                                   <span class="page active" data-page="popModal">
+                                                                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index)" >
+                                                                                             -
+                                                                                         </button>
+                                                                                   </span>
+                                                                            </span>
+                                                                        </h2>
+                                                                    </a>
+
                                                                 </h4>
                                                             </div>
                                                         </div>
 
-                                                        <h4>{{project[1].describe}}</h4>
-
+                                                        <h4>{{p.describe}}</h4>
+                                                            <br/><br/>
+                                                 </div>
                                                 </div>
+            <!-- end project-->
 
-            </div>
+        </div>
 
             <footer>
             </footer>
@@ -479,8 +506,8 @@
     <div style="display:none">
         <div id="reEditExperience">
             <p> Add Support </p>
-            <input type ="text"  ng-model = "txt_Support"> </input>
-            <input type ="text"  ng-model = "txt_Support"> </input>
+            <input type ="text"  ng-model = "txt_editEx"> </input>
+            <input type ="text"  ng-model = "txt_editEx"> </input>
             <div class="popModal_footer">
                 <button type="button" class="btn btn-primary" data-popmodal-but="ok" >Add</button>
                 <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
@@ -488,6 +515,33 @@
         </div>
     </div>
 
+    <!--Div để edit education -->
+    <div style="display:none">
+        <div id="reEditEducation" class="editCurrenWork">
+            <h1> Edit Education </h1>
+            <input type ="text"  ng-model = "txt_nameSchool"> </input> <br/><br/>
+            <input type ="text"  ng-model = "txt_addressSchool"> </input><br/><br/>
+            <input type ="text"  ng-model = "txt_startCourses"> </input><br/><br/>
+            <input type ="text"  ng-model = "txt_endCourses"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click = "buldingSaveEducation()">Save</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để add project -->
+    <div style="display:none">
+        <div id="reAddProject" class = "addPriject">
+            <p> Add Project </p>
+            <input type ="text"  ng-model = "txt_NameProject"> </input> <br/><br/>
+            <textarea type ="text"  ng-model = "txt_Describe"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddProject()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
 
     <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="js/popModal.js"></script>
@@ -578,9 +632,26 @@
                 });
             });
 
-            $('#editExperience').click(function(){
-                $('#editExperience').popModal({
-                    html : $('#reEditExperience'),
+            $('#editEducation').click(function(){
+                $('#editEducation').popModal({
+                    html : $('#reEditEducation'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#addProject').click(function(){
+                $('#addProject').popModal({
+                    html : $('#reAddProject'),
                     placement : 'right',
                     showCloseBut : true,
                     onDocumentClickClose : true,

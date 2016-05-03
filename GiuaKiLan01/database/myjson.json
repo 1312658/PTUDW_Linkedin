@@ -241,12 +241,10 @@
 
   "project":[{
     "name": "GOMOKU",
-    "Language": "WPF",
     "describe": "Gomoku is an abstract strategy board game. Also called Gobang or Five in a Row, it is traditionally played with Go pieces (black and white stones) on a go board with 19x19 (15x15) intersections;[1] however, because once placed, pieces are not moved or removed from the board; gomoku may also be played as a paper and pencil game. This game is known in several countries under different names."
   },
     {
       "name": "CARO",
-      "Language": "C#",
       "describe": "The Caro–Kann is a common defense against the King Pawn Opening and is classified as a 'Semi-Open Game' like the Sicilian Defence and French Defence, although it is thought to be more solid and less dynamic than either of those openings. It often leads to good endgames for Black, who has the better pawn structure."
     }
   ]

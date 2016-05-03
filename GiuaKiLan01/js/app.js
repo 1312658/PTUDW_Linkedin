@@ -51,8 +51,36 @@ linkedInApp.controller('content-controller', ['$scope','$http',
             $scope.supportedOrganizations.splice(index, 1);
         }
 
+        // edit experience
+        $scope.buldingTextExperience = function () {
+            $scope.txt_editEx = $scope.experience.title;
+        }
+        
+        // edit education
+        $scope.buldingTextEducation = function () {
+            $scope.txt_nameSchool = $scope.education.name;
+            $scope.txt_addressSchool = $scope.education.title;
+            $scope.txt_startCourses = $scope.education.startPeriod;
+            $scope.txt_endCourses = $scope.education.endPeriod;
+        }
+        $scope.buldingSaveEducation = function() {
+            $scope.education.name = $scope.txt_nameSchool;
+            $scope.education.title = $scope.txt_addressSchool;
+            $scope.education.startPeriod = $scope.txt_startCourses;
+            $scope.education.endPeriod = $scope.txt_endCourses;
+        }
+        // add project
+        $scope.buldingAddProject =  function () {
+            $scope.project.push({name: $scope.txt_NameProject, describe: $scope.txt_Describe});
+        }
+        // remove project
+        $scope.buldingRemoveSupport = function (index) {
+            $scope.project.splice(index, 1);
+        }
+
         // show dialog experience
-        $scope.showDialog = function() {
+        $scope.showDialog = function()
+        {
                 $('#editExperience').popModal({
                     html : $('#reEditExperience'),
                     placement : 'right',
@@ -68,6 +96,7 @@ linkedInApp.controller('content-controller', ['$scope','$http',
                     onClose : function() {}
                 });
         }
+        
 
         $http.get('./database/myjson.json').success(function (data) {
             //Read model from json data
@@ -95,7 +124,5 @@ linkedInApp.controller('content-controller', ['$scope','$http',
 
             $scope.education = data.education;
             $scope.project = data.project;
-
-
         });
     }]);

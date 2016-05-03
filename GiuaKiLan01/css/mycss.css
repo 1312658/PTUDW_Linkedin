@@ -209,10 +209,23 @@ button:hover {
 }
 .editSummary textarea{
     font-size: 15px;
-    width: 200px;
+    width: 250px;
     height: 300px;
     form: usrform;
 }
 
+.addPriject input[type = text]
+{
+    font-size: 20px;
+    width: 250px;
+}
+
+.addPriject textarea[type = text]
+{
+    font-size: 15px;
+    width: 250px;
+    height: 300px;
+    form: usrform;
+}
 .Wrapper { font-family: Arial; }
 
