@@ -74,10 +74,34 @@ linkedInApp.controller('content-controller', ['$scope','$http',
             $scope.project.push({name: $scope.txt_NameProject, describe: $scope.txt_Describe});
         }
         // remove project
-        $scope.buldingRemoveSupport = function (index) {
+        $scope.buldingRemoveProject = function (index) {
             $scope.project.splice(index, 1);
         }
 
+        // add skkill
+        $scope.buldingAddSkill = function () {
+            $scope.skills.push({name: $scope.txt_NameSkill, endorsers: $scope.txt_PointSkill});
+        }
+
+        // add Experience
+        $scope.buldingAddExperience = function () {
+            $scope.experience.push({companyName: $scope.txt_CompanyName, title: $scope.txt_Title, startPeriod: $scope.txt_StartPeriod, endPeriod: $scope.txt_endPeriod, duration: $scope.txt_duration, description: $scope.txt_description});
+        }
+
+        // remove Experience
+        $scope.buldingRemoveExperience = function (index) {
+            $scope.experience.splice(index, 1);
+        }
+
+        // edit work
+        $scope.buldingTextWork = function () {
+            $scope.txt_Location = $scope.work.location;
+            $scope.txt_industry = $scope.work.industry;
+        }
+        $scope.buldingSaveWork = function() {
+            $scope.work.location = $scope.txt_Location;
+            $scope.work.industry = $scope.txt_industry;
+        }
         // show dialog experience
         $scope.showDialog = function()
         {
@@ -121,6 +145,7 @@ linkedInApp.controller('content-controller', ['$scope','$http',
             $scope.supportedOrganizations = data.supportedOrganizations;
 
             $scope.skills = data.skills;
+            $scope.otherSkills = data.otherSkills;
 
             $scope.education = data.education;
             $scope.project = data.project;

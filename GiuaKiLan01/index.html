@@ -65,9 +65,21 @@
                                     </span>
                                 </h2>
                                 <li>
-                                    <a href="https://www.linkedin.com/vsearch/p?f_G=us%3A84&trk=prof-0-ovw-location" title="">{{work.location}}</a> |
-                                    <a href="https://www.linkedin.com/vsearch/p?f_I=6&trk=prof-0-ovw-industry" title="">{{work.industry}}</a><br/>
+                                    <span style="display: inline">
+                                        <a href="https://www.linkedin.com/vsearch/p?f_G=us%3A84&trk=prof-0-ovw-location" title="">{{work.location}}</a> |
+                                        <a href="https://www.linkedin.com/vsearch/p?f_I=6&trk=prof-0-ovw-industry" title="">{{work.industry}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                                        <!-- button edit curren work -->
+                                        <span style="display: inline;" class="page_container">
+                                                <span class="page active" data-page="popModal">
+                                                     <button id="editWork" class="edit-name-button" ng-click = "buldingTextWork()"} >
+                                                         <img src = "./picture/edit.png">
+                                                     </button>
+                                                </span>
+                                        </span>
+                                        <br/>
 
+
+                                    </span>
                                     <a href="#" title=""> Current</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="https://www.linkedin.com/company/1337?trk=prof-0-ovw-curr_pos" title=""> {{experience[0].companyName}}</a>,
                                     <a href="https://www.linkedin.com/company/1666?trk=prof-0-ovw-curr_pos" title=""> {{experience[1].companyName}} </a>,
@@ -185,6 +197,7 @@
             </div>
             <hr/>
 
+
             <!--start  Experience-->
             <div class = "container_background">
                 <div class = "row">
@@ -194,7 +207,15 @@
 
                         </div>
                         <div class = "col-lg-6">
-                            <h2 > Experience </h2>
+                            <h2 > Experience &nbsp;&nbsp;&nbsp;
+                                    <span style="display: inline;" class="page_container">
+                                           <span class="page active" data-page="popModal">
+                                                 <button id="addExperience" class="edit-name-button"} >
+                                                       +
+                                                 </button>
+                                           </span>
+                                    </span>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -206,11 +227,11 @@
                                 <a title="">
                                     <h2><b>{{e.title}}</b>&nbsp&nbsp&nbsp
                                         <span style="display: inline;" class="page_container">
-                                                <span class="page active" data-page="popModal">
-                                                    <button  id="editExperience" class="edit-name-button" ng-click="showDialog();" } >
-                                                         <img src = "./picture/edit.png">
-                                                    </button>
-                                                </span>/
+                                              <span class="page active" data-page="popModal">
+                                                    <button class="remove-name-button" ng-click ="buldingRemoveExperience($index)" >
+                                                          -
+                                                     </button>
+                                              </span>
                                         </span>
                                     </h2>
                                 </a>
@@ -278,12 +299,12 @@
                     </span>
                 </h2>
 
-                <div  id="background-volunteerexp" class="editBox-container" ng-repeat="s in supportedOrganizations">
-                    <a >
-                        <li style="list-style: circle"> {{s}} &nbsp&nbsp&nbsp
+                <div id="background-volunteerexp" class="editBox-container" ng-repeat="s in supportedOrganizations">
+                    <a>
+                        <li style="list-style: circle;"> {{s}} &nbsp&nbsp&nbsp
                             <span style="display: inline;" class="page_container">
                                    <span class="page active" data-page="popModal">
-                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index)" >
+                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index);" >
                                              -
                                          </button>
                                    </span>
@@ -295,64 +316,39 @@
             <!--end  Volunteer Experience & Causes-->
 
 
-
-
             <!--start Skills-->
                   <div class = "container_background">
-                                                    <div class = "row">
-                                                        <div class = "col-lg-1">
-                                                            <img src="./picture/header-skill.png" height="40" width="40" alt="summary">
-                                                        </div>
-                                                        <div class = "col-lg-4">
-                                                            <h2> Skills </h2>
-                                                        </div>
-                                                    </div>
+                       <div class = "row">
+                           <div class = "col-lg-1">
+                                <img src="./picture/header-skill.png" height="40" width="40" alt="summary">
+                           </div>
+                           <div class = "col-lg-4">
+                                <h2> Skills &nbsp&nbsp&nbsp
+                                    <span style="display: inline;" class="page_container">
+                                           <span class="page active" data-page="popModal">
+                                                 <button id="addSkill" class="edit-name-button"} >
+                                                       +
+                                                 </button>
+                                           </span>
+                                    </span>
+                                </h2>
+                           </div>
+                       </div>
 
-                                                    <h2> Top Skills </h2>
-                                                    <button type="button" class ="button4">{{skills[0].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[0].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[1].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[1].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[2].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[2].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[3].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[3].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[4].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[4].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[5].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[5].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[6].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[6].name}}</h4> </button> <br>
-                                                    <button type="button" class ="button4">{{skills[7].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[7].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[8].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[8].name}}</h4></button> <br>
-                                                    <button type="button" class ="button4">{{skills[9].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[9].name}}</h4></button> <br>
-                                                    <br/>
-                                                    <h4>Jeff also knows about... </h4>
-                                                    <button type="button" class ="button4">{{skills[10].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[10].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[11].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[11].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[12].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[12].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[13].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[13].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[14].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[14].name}}</h4></button><br/>
-                                                    <button type="button" class ="button4">{{skills[15].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[15].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[16].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[16].name}}</h4> </button>
-                                                    <button type="button" class ="button4">{{skills[17].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[17].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[18].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[18].name}}</h4></button>
-                                                    <button type="button" class ="button4">{{skills[19].endorsers}}</button>
-                                                    <button type="button" class ="button3"><h4>{{skills[19].name}}</h4></button>
-
-                                                </div>
+                       <h2> Top Skills </h2>
+                      <div class="editBox-container" ng-repeat="s in skills">
+                          <button type="button" class ="button4">{{s.endorsers}}</button>
+                          <button type="button" class ="button3"><h4>{{s.name}}</h4></button>
+                      </div>
+                      <br/>
+                      <h4>Jeff also knows about... </h4>
+                      <span class="editBox-container" ng-repeat="os in otherSkills">
+                          <span style="display: inline-block">
+                              <button type="button" class ="button4">{{os.endorsers}}</button>
+                              <button type="button" class ="button3"><h4>{{os.name}}</h4></button>
+                          </span>
+                      </span>
+                  </div>
             <!--end Skills-->
                   <hr/>
 
@@ -390,6 +386,7 @@
             <!-- Start education -->
                   <hr/>
 
+
             <!-- Start project-->
                  <div class = "container_background">
                                                     <div class = "row">
@@ -416,7 +413,7 @@
                                                                         <h2><b>{{p.name}} &nbsp&nbsp&nbsp</b>
                                                                             <span style="display: inline;" class="page_container">
                                                                                    <span class="page active" data-page="popModal">
-                                                                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index)" >
+                                                                                         <button class="remove-name-button" ng-click ="buldingRemoveProject($index)" >
                                                                                              -
                                                                                          </button>
                                                                                    </span>
@@ -441,7 +438,6 @@
         </div>
 
    </div>
-
 
     <!--Div để show dialog rename -->
     <div style="display:none">
@@ -502,26 +498,17 @@
         </div>
     </div>
 
-    <!--Div để edit experience -->
-    <div style="display:none">
-        <div id="reEditExperience">
-            <p> Add Support </p>
-            <input type ="text"  ng-model = "txt_editEx"> </input>
-            <input type ="text"  ng-model = "txt_editEx"> </input>
-            <div class="popModal_footer">
-                <button type="button" class="btn btn-primary" data-popmodal-but="ok" >Add</button>
-                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
-            </div>
-        </div>
-    </div>
-
     <!--Div để edit education -->
     <div style="display:none">
         <div id="reEditEducation" class="editCurrenWork">
             <h1> Edit Education </h1>
-            <input type ="text"  ng-model = "txt_nameSchool"> </input> <br/><br/>
-            <input type ="text"  ng-model = "txt_addressSchool"> </input><br/><br/>
-            <input type ="text"  ng-model = "txt_startCourses"> </input><br/><br/>
+            <h4> Name school </h4>
+            <input type ="text"  ng-model = "txt_nameSchool"> </input>
+            <h4> Address school </h4>
+            <input type ="text"  ng-model = "txt_addressSchool"> </input>
+            <h4> Start Courses </h4>
+            <input type ="text"  ng-model = "txt_startCourses"> </input>
+            <h4> End Courses </h4>
             <input type ="text"  ng-model = "txt_endCourses"> </input>
             <div class="popModal_footer">
                 <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click = "buldingSaveEducation()">Save</button>
@@ -534,7 +521,9 @@
     <div style="display:none">
         <div id="reAddProject" class = "addPriject">
             <p> Add Project </p>
-            <input type ="text"  ng-model = "txt_NameProject"> </input> <br/><br/>
+            <h4> Name Project</h4>
+            <input type ="text"  ng-model = "txt_NameProject"> </input>
+            <h4> Describe Project</h4>
             <textarea type ="text"  ng-model = "txt_Describe"> </textarea>
             <div class="popModal_footer">
                 <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddProject()">Add</button>
@@ -542,6 +531,58 @@
             </div>
         </div>
     </div>
+
+    <!--Div để add skill -->
+    <div style="display:none">
+        <div id="reAddSkill" class = "addPriject">
+            <p> Add Skill (Name, Point)</p>
+            <h4> Name Skill</h4>
+            <input type ="text"  ng-model = "txt_NameSkill"> </input>
+            <h4> Point Skill</h4>
+            <input type ="text"  ng-model = "txt_PointSkill"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddSkill()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để add Experience -->
+    <div style="display:none">
+        <div id="reAddExperience" class = "addPriject">
+            <p> Add Experience (Name, Point)</p>
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_CompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_Title"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_StartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_endPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_duration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_description"> </textarea>
+
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingAddExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để edit  Work -->
+    <div style="display:none">
+        <div id="reEditWork" class = "addPriject">
+            <input type ="text"  ng-model = "txt_Location"> </input>
+            <input type ="text"  ng-model = "txt_industry"> </input>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveWork()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="js/popModal.js"></script>
@@ -666,6 +707,56 @@
                 });
             });
 
+            $('#addSkill').click(function(){
+                $('#addSkill').popModal({
+                    html : $('#reAddSkill'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#addExperience').click(function(){
+                $('#addExperience').popModal({
+                    html : $('#reAddExperience'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
+
+            $('#editWork').click(function(){
+                $('#editWork').popModal({
+                    html : $('#reEditWork'),
+                    placement : 'right',
+                    showCloseBut : true,
+                    onDocumentClickClose : true,
+                    onDocumentClickClosePrevent : '',
+                    overflowContent : false,
+                    inline : true,
+                    asMenu : false,
+                    beforeLoadingContent : 'Please, wait...',
+                    onCancelBut : function() {},
+                    onLoad : function() {},
+                    onClose : function() {}
+                });
+            });
 
         });
     </script>

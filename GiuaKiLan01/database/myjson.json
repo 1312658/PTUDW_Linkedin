@@ -181,7 +181,9 @@
   }, {
     "name": "LinkedIn",
     "endorsers": "73"
-  }, {
+  }],
+
+  "otherSkills": [{
     "name": "Social Media",
     "endorsers": "64"
   }, {
@@ -230,6 +232,7 @@
     "name": "Education",
     "endorsers": "3"
   }],
+
   "education": {
     "name": "University of Pennsylvania - The Wharton School",
     "url": "https://www.linkedin.com/edu/school?id=19329\u0026trk=prof-edu-school-name",

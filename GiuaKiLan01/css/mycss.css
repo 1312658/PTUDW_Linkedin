@@ -11,7 +11,7 @@ h3 {
 		color: white;
 	}
 h4 {	
-		font-size: 13px;
+		font-size: 14px;
 		color: #696969;
 	}	
 a {	
@@ -173,8 +173,9 @@ button:hover {
     width: 25px;
     line-height: 26px;
     border: 0px;
-    color: #505e69;
+    color: black;
     padding: 0 0 0 0;
+    background-color: white;
 }
 .edit-name-button:hover {
     background-color: #00a0dc;
@@ -182,20 +183,19 @@ button:hover {
 
 /***button minimum zize***/
 .remove-name-button {
-
     display: inline-block;
     position: absolute;
     height: 18px;
     width: 18px;
     line-height: 26px;
     border: 0px;
-    color: #505e69;
+    color: black;
     padding-top: -1px;
+    background-color: white;
 }
 .remove-name-button:hover {
     background-color: #00a0dc;
 }
-
 
 /***dialog**/
 .editName input[type=text]{
@@ -229,3 +229,13 @@ button:hover {
 }
 .Wrapper { font-family: Arial; }
 
+.editWork{
+    display: inline-block;
+    position: absolute;
+    height: 11px;
+    width: 11px;
+    line-height: 26px;
+    border: 0px;
+    color: #505e69;
+    padding-top: -1px;
+}
