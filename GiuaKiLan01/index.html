@@ -13,6 +13,9 @@
     <script src="./js/app.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
 
+    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="js/popModal.js"></script>
+
 </head>
 <body  ng-controller= "content-controller"  background="./picture/bg-texture.png">
     <div class ="Wrapper" >
@@ -83,15 +86,42 @@
                                     <a href="#" title=""> Current</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="https://www.linkedin.com/company/1337?trk=prof-0-ovw-curr_pos" title=""> {{experience[0].companyName}}</a>,
                                     <a href="https://www.linkedin.com/company/1666?trk=prof-0-ovw-curr_pos" title=""> {{experience[1].companyName}} </a>,
-                                    <a href="https://www.linkedin.com/company/33101?trk=prof-0-ovw-curr_pos" title=""> {{experience[2].companyName}} </a> <br/>
+                                    <a href="https://www.linkedin.com/company/33101?trk=prof-0-ovw-curr_pos" title=""> {{experience[2].companyName}} </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <!-- button edit Current work -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                              <button  class="edit-name-button" ng-click = "editWorkTopShow();" >
+                                                    <img src = "./picture/edit.png">
+                                              </button>
+                                        </span>
+                                    </span>
+                                    <br/>
 
                                     <a href="#" title=""> Previous </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <a href="https://www.linkedin.com/company/695380?trk=prof-0-ovw-prev_pos" title=""> {{experience[5].companyName}} </a>,
                                     <a href="https://www.linkedin.com/company/17412?trk=prof-0-ovw-prev_pos" title=""> {{experience[6].companyName}} </a>,
-                                    <a href="https://www.linkedin.com/company/17412?trk=prof-0-ovw-prev_pos" title=""> {{experience[7].companyName}}</a> <br/>
+                                    <a href="https://www.linkedin.com/company/17412?trk=prof-0-ovw-prev_pos" title=""> {{experience[7].companyName}}</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <!-- button edit Previous work -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                              <button  class="edit-name-button" ng-click = "editWorkTopShow();" >
+                                                    <img src = "./picture/edit.png">
+                                              </button>
+                                        </span>
+                                    </span>
+                                    <br/>
 
                                     <a href="#" title=""> Education </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <a href="https://www.linkedin.com/edu/school?id=19329&trk=prof-0-ovw-edu" title=""> {{education.name}}</a> <br/><br/>
+                                    <a href="https://www.linkedin.com/edu/school?id=19329&trk=prof-0-ovw-edu" title=""> {{education.name}}</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                    <!-- button edit Education work -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal">
+                                              <button  class="edit-name-button" ng-click = "editEducationTopShow();" >
+                                                    <img src = "./picture/edit.png">
+                                              </button>
+                                        </span>
+                                    </span>
+                                    <br/><br/>
                                 </li>
                                 <button type="button" id= "btn_follow" > <b>Folowing </b></button>
                                 <button type="button" id="btn_arrow"> <b> </b>
@@ -199,7 +229,7 @@
 
 
             <!--start  Experience-->
-            <div class = "container_background">
+            <div id = "id-editWorkTopShow" class = "container_background">
                 <div class = "row">
                     <div class = "col-lg-4">
                         <div class = "col-lg-3">
@@ -355,7 +385,7 @@
 
 
             <!-- Start education -->
-                  <div class = "container_background">
+                  <div id = "id-education" class = "container_background">
                                                     <div class = "row">
                                                         <div class = "col-lg-1">
                                                             <img src="./picture/header-education.png" height="40" width="40" alt="summary">
@@ -583,9 +613,6 @@
         </div>
     </div>
 
-
-    <script src="http://cdn.jsdelivr.net/jquery/3.0.0-beta1/jquery.min.js"></script>
-    <script src="js/popModal.js"></script>
     <script>
         $(function(){
             $('#editName').click(function(){

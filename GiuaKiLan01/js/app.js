@@ -120,8 +120,16 @@ linkedInApp.controller('content-controller', ['$scope','$http',
                     onClose : function() {}
                 });
         }
-        
 
+        // move down edit education
+        $scope.editEducationTopShow = function () {
+            $('html, body').animate({scrollTop: $('#id-education').offset().top}, 'slow');
+        };
+
+        // move down edit curren work
+        $scope.editWorkTopShow = function () {
+            $('html, body').animate({scrollTop: $('#id-editWorkTopShow').offset().top}, 'slow');
+        };
         $http.get('./database/myjson.json').success(function (data) {
             //Read model from json data
             $scope.cover = data.cover;

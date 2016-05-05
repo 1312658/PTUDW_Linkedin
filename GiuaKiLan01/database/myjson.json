@@ -1,11 +1,11 @@
 {
   "cover": "picture/cover.jpg",
   "avatar": "picture/avatar.jpg",
-  "name": ["Jeff", "Weiner"],
-  "possition": "CEO at LinkedIn",
+  "name": ["Anh ", "Tuấn"],
+  "possition": "Student at Khoa Học Tự Nhiên",
   "work": {
-    "location": "San Francisco Bay Area",
-    "industry": "Internet"
+    "location": "Hồ Chí Minh City in Việt Nam",
+    "industry": "DEV"
   },
   "Influencer": true,
   "followers": "400,663,6",
