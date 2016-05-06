@@ -102,24 +102,6 @@ linkedInApp.controller('content-controller', ['$scope','$http',
             $scope.work.location = $scope.txt_Location;
             $scope.work.industry = $scope.txt_industry;
         }
-        // show dialog experience
-        $scope.showDialog = function()
-        {
-                $('#editExperience').popModal({
-                    html : $('#reEditExperience'),
-                    placement : 'right',
-                    showCloseBut : true,
-                    onDocumentClickClose : true,
-                    onDocumentClickClosePrevent : '',
-                    overflowContent : false,
-                    inline : true,
-                    asMenu : false,
-                    beforeLoadingContent : 'Please, wait...',
-                    onCancelBut : function() {},
-                    onLoad : function() {},
-                    onClose : function() {}
-                });
-        }
 
         // move down edit education
         $scope.editEducationTopShow = function () {
@@ -130,7 +112,116 @@ linkedInApp.controller('content-controller', ['$scope','$http',
         $scope.editWorkTopShow = function () {
             $('html, body').animate({scrollTop: $('#id-editWorkTopShow').offset().top}, 'slow');
         };
-        $http.get('./database/myjson.json').success(function (data) {
+
+        var m_index;
+        $scope.editeditExperience = function (index) {
+
+            m_index = index;
+            $scope.txt_editCompanyName  = $scope.experience[index].companyName;
+            $scope.txt_editTitle  = $scope.experience[index].title;
+            $scope.txt_editStartPeriod  =$scope.experience[index].startPeriod;
+            $scope.txt_editendPeriod  =$scope.experience[index].endPeriod;
+            $scope.txt_editduration  =$scope.experience[index].duration;
+            $scope.txt_editDescription =$scope.experience[index].description;
+
+            if(index ==0) {
+                $('#editExperience-0').popModal({
+                    html: $('#reEditExperience-0'),
+                    placement: 'right'
+                });
+            }
+            if(index ==1)
+            {
+                $('#editExperience-1').popModal({
+                    html : $('#reEditExperience-1'),
+                    placement : 'right'
+                });
+            }
+            if(index ==2)
+            {
+                $('#editExperience-2').popModal({
+                    html : $('#reEditExperience-2'),
+                    placement : 'right'
+                });
+            }
+            if(index ==3)
+            {
+                $('#editExperience-3').popModal({
+                    html : $('#reEditExperience-3'),
+                    placement : 'right'
+                });
+            }
+            if(index ==4)
+            {
+                $('#editExperience-4').popModal({
+                    html : $('#reEditExperience-4'),
+                    placement : 'right'
+                });
+            }if(index ==5)
+            {
+                $('#editExperience-5').popModal({
+                    html : $('#reEditExperience-5'),
+                    placement : 'right'
+                });
+            }if(index ==6)
+            {
+                $('#editExperience-6').popModal({
+                    html : $('#reEditExperience-6'),
+                    placement : 'right'
+                });
+            }
+            if(index ==7)
+            {
+                $('#editExperience-7').popModal({
+                    html : $('#reEditExperience-7'),
+                    placement : 'right'
+                });
+            }
+            if(index ==8)
+            {
+                $('#editExperience-8').popModal({
+                    html : $('#reEditExperience-8'),
+                    placement : 'right'
+                });
+            }
+            if(index ==9)
+            {
+                $('#editExperience-9').popModal({
+                    html : $('#reEditExperience-9'),
+                    placement : 'right'
+                });
+            }
+            if(index ==10)
+            {
+                $('#editExperience-10').popModal({
+                    html : $('#reEditExperience-10'),
+                    placement : 'right'
+                });
+            }if(index ==11)
+            {
+                $('#editExperience-11').popModal({
+                    html : $('#reEditExperience-11'),
+                    placement : 'right'
+                });
+            }if(index ==12)
+            {
+                $('#editExperience-12').popModal({
+                    html : $('#reEditExperience-12'),
+                    placement : 'right'
+                });
+            }
+        }
+
+        $scope.buldingSaveExperience = function() {
+            $scope.experience[m_index].companyName = $scope.txt_editCompanyName ;
+            $scope.experience[m_index].title = $scope.txt_editTitle ;
+            $scope.experience[m_index].startPeriod  =$scope.txt_editStartPeriod;
+            $scope.experience[m_index].endPeriod =$scope.txt_editendPeriod ;
+            $scope.experience[m_index].duration =$scope.txt_editduration ;
+            $scope.experience[m_index].description =$scope.txt_editDescription;
+        }
+
+        $http.get('https://api.myjson.com/bins/2o960').success(function (data) {
             //Read model from json data
             $scope.cover = data.cover;
             $scope.avatar = data.avatar;

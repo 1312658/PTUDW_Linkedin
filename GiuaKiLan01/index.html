@@ -50,7 +50,7 @@
                                     <!-- button edit rename work -->
                                     <span style="display: inline;" class="page_container">
                                         <span class="page active" data-page="popModal">
-                                              <button id="editName" class="edit-name-button" ng-click = "buldingTextRename()"} >
+                                              <button id="editName" class="edit-name-button" ng-click = "buldingTextRename()"  >
                                                     <img src = "./picture/edit.png">
                                               </button>
                                         </span>
@@ -227,21 +227,19 @@
             </div>
             <hr/>
 
-
             <!--start  Experience-->
             <div id = "id-editWorkTopShow" class = "container_background">
                 <div class = "row">
                     <div class = "col-lg-4">
                         <div class = "col-lg-3">
                             <img src="./picture/header-experience.png" height="40" width="40" alt="summary">
-
                         </div>
                         <div class = "col-lg-6">
                             <h2 > Experience &nbsp;&nbsp;&nbsp;
                                     <span style="display: inline;" class="page_container">
                                            <span class="page active" data-page="popModal">
                                                  <button id="addExperience" class="edit-name-button"} >
-                                                       +
+                                                      <img src ="./picture/add.png"/>
                                                  </button>
                                            </span>
                                     </span>
@@ -258,8 +256,8 @@
                                     <h2><b>{{e.title}}</b>&nbsp&nbsp&nbsp
                                         <span style="display: inline;" class="page_container">
                                               <span class="page active" data-page="popModal">
-                                                    <button class="remove-name-button" ng-click ="buldingRemoveExperience($index)" >
-                                                          -
+                                                    <button class="edit-name-button" ng-click ="buldingRemoveExperience($index)" >
+                                                          <img src ="./picture/remove.png"/>
                                                      </button>
                                               </span>
                                         </span>
@@ -272,9 +270,20 @@
                         </div>
 
                         <div class = "col-lg-2">
-                            <a href="{{e.companyUrl}}">
-                                <img ng-src="{{e.companyLogo}}" ng-alt="{{e.companyUrl}}"/>
-                            </a>
+                            <div class="col-lg-10">
+                                <a href="{{e.companyUrl}}">
+                                    <img ng-src="{{e.companyLogo}}" ng-alt="{{e.companyUrl}}"/>
+                                </a>
+                            </div>
+                            <!-- button edit Summary -->
+                                    <span style="display: inline;" class="page_container">
+                                        <span class="page active" data-page="popModal" >
+                                            <button id="editExperience-{{$index}}" class="edit-name-button" ng-click="editeditExperience($index)">
+                                                 <img src = "./picture/edit.png">
+                                            </button>
+                                        </span>
+                                    </span>
+
                         </div>
                     </div>
                     <h4 ng-bind-html="e.description">{{e.description}}</h4>
@@ -302,7 +311,7 @@
                     <span style="display: inline;" class="page_container">
                            <span class="page active" data-page="popModal">
                                  <button id="addCausesCares" class="edit-name-button"} >
-                                     +
+                                     <img src ="./picture/add.png"/>
                                  </button>
                            </span>
                     </span>
@@ -312,8 +321,8 @@
                         <li style="list-style: circle;"> {{c}} &nbsp&nbsp&nbsp
                             <span style="display: inline;" class="page_container">
                                <span class="page active" data-page="popModal">
-                                     <button class="remove-name-button" ng-click ="buldingRemoveCauseCare($index)" >
-                                         -
+                                     <button class="edit-name-button" ng-click ="buldingRemoveCauseCare($index)" >
+                                         <img src ="./picture/remove.png"/>
                                      </button>
                                </span>
                             </span>
@@ -323,7 +332,7 @@
                     <span style="display: inline;" class="page_container">
                            <span class="page active" data-page="popModal">
                                  <button id="addSupports" class="edit-name-button"} >
-                                       +
+                                       <img src ="./picture/add.png"/>
                                  </button>
                            </span>
                     </span>
@@ -334,8 +343,8 @@
                         <li style="list-style: circle;"> {{s}} &nbsp&nbsp&nbsp
                             <span style="display: inline;" class="page_container">
                                    <span class="page active" data-page="popModal">
-                                         <button class="remove-name-button" ng-click ="buldingRemoveSupport($index);" >
-                                             -
+                                         <button class="edit-name-button" ng-click ="buldingRemoveSupport($index);" >
+                                             <img src ="./picture/remove.png"/>
                                          </button>
                                    </span>
                             </span>
@@ -357,7 +366,7 @@
                                     <span style="display: inline;" class="page_container">
                                            <span class="page active" data-page="popModal">
                                                  <button id="addSkill" class="edit-name-button"} >
-                                                       +
+                                                       <img src = "./picture/add.png"/>
                                                  </button>
                                            </span>
                                     </span>
@@ -428,7 +437,7 @@
                                                             <span style="display: inline;" class="page_container">
                                                                    <span class="page active" data-page="popModal">
                                                                          <button id="addProject" class="edit-name-button"} >
-                                                                               +
+                                                                               <img src ="./picture/add.png"/>
                                                                          </button>
                                                                    </span>
                                                             </span>
@@ -443,8 +452,8 @@
                                                                         <h2><b>{{p.name}} &nbsp&nbsp&nbsp</b>
                                                                             <span style="display: inline;" class="page_container">
                                                                                    <span class="page active" data-page="popModal">
-                                                                                         <button class="remove-name-button" ng-click ="buldingRemoveProject($index)" >
-                                                                                             -
+                                                                                         <button class="edit-name-button" ng-click ="buldingRemoveProject($index)" >
+                                                                                             <img src ="./picture/remove.png"/>
                                                                                          </button>
                                                                                    </span>
                                                                             </span>
@@ -608,6 +617,280 @@
             <input type ="text"  ng-model = "txt_industry"> </input>
             <div class="popModal_footer">
                 <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveWork()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-0" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience($index)">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-1" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-2" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-3" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-4" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-5" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-6" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-7" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-8" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-9" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-10" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-11" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Add</button>
+                <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Div để experience  Work -->
+    <div style="display:none">
+        <div id="reEditExperience-12" class = "addPriject">
+            <h4> Company Name</h4>
+            <input type ="text"  ng-model = "txt_editCompanyName"> </input>
+            <h4> Work </h4>
+            <input type ="text"  ng-model = "txt_editTitle"> </input>
+            <h4> Start Period</h4>
+            <input type ="text"  ng-model = "txt_editStartPeriod"> </input>
+            <h4> End Period</h4>
+            <input type ="text"  ng-model = "txt_editendPeriod"> </input>
+            <h4> Duration</h4>
+            <input type ="text"  ng-model = "txt_editduration"> </input>
+            <h4> Description</h4>
+            <textarea type ="text"  ng-model = "txt_editDescription"> </textarea>
+            <div class="popModal_footer">
+                <button type="button" class="btn btn-primary" data-popmodal-but="ok" ng-click ="buldingSaveExperience()">Save</button>
                 <button type="button" class="btn btn-default" data-popmodal-but="cancel">cancel</button>
             </div>
         </div>
